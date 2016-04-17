@@ -70,14 +70,6 @@
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
-    <ScrollView
-        android:id="@+id/mapView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:fillViewport="false" />
 
 
 </RelativeLayout>

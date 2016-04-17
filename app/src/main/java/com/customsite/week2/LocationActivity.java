@@ -26,6 +26,7 @@ public class LocationActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
+                //TODO Get Current Location
                 MySessionVars.salesTaxRates.setLocation(12345);
 
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);

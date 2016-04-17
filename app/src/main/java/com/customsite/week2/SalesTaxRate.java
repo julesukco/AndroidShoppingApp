@@ -32,7 +32,6 @@ public class SalesTaxRate {
             type = ProductCatalog.ProductType[productId];
             price = Double.parseDouble(ProductCatalog.ProductPrice[productId]);
 
-            //TODO Calculate the real amount based on product price
             switch (type) {
                 case "Food":
                     total = total + (salesTaxFood * price * qty);
