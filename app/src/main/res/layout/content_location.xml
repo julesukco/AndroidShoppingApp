@@ -12,22 +12,59 @@
     tools:context="com.customsite.week2.LocationActivity"
     tools:showIn="@layout/activity_location">
 
-    <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.customsite.week2.MapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/btnStart1"
-        android:layout_marginBottom="20dp" />
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtLatitude"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Latitude:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/txtLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="9"
+        android:numeric="decimal"
+        android:text="39.5186" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/txtLongitude"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="Latitude:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/txtLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLatitude"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:ems="5"
+        android:inputType="number"
+        android:maxLength="9"
+        android:numeric="decimal"
+        android:text="-104.7613" />
 
     <Button
         android:id="@+id/btnStart1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView8"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/txtLongitude"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="30dp"
         android:width="60sp"
         android:background="#c20805"
         android:text="Use Current Location"
@@ -48,7 +85,7 @@
         android:id="@+id/txtZipCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnStart2"
+        android:layout_below="@+id/btnStart1"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="15dp"
@@ -61,15 +98,20 @@
         android:id="@+id/btnStart2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/txtZipCode"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
         android:width="60sp"
         android:background="#c20805"
         android:text="Use ZIP Code"
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
-
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.customsite.week2.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnStart2"
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>
