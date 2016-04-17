@@ -41,27 +41,23 @@ public class LocationActivity extends AppCompatActivity
                 Geocoder geocoder;
                 List<Address> addresses;
                 geocoder = new Geocoder(v.getContext(), Locale.getDefault());
+                String strZip;
 
                 try {
                     addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                    strZip = addresses.get(0).getPostalCode();
                 } catch (IllegalArgumentException e) {
                     Toast.makeText(getApplicationContext(), "Latitude must be > -90.0 & < 90.0 and longitude > -180.0 & < 180.0", Toast.LENGTH_LONG).show();
                     return;
                 } catch (IOException e) {
                     Toast.makeText(getApplicationContext(), "Error Converting Latitude and Longitude", Toast.LENGTH_LONG).show();
                     return;
+                } catch (IndexOutOfBoundsException e) {
+                    Toast.makeText(getApplicationContext(), "Error Converting Latitude and Longitude to ZIP Code", Toast.LENGTH_LONG).show();
+                    return;
                 }
 
-                String address = addresses.get(0).getAddressLine(0);
-                String city = addresses.get(0).getLocality();
-                String state = addresses.get(0).getAdminArea();
-                String country = addresses.get(0).getCountryName();
-                String strZip = addresses.get(0).getPostalCode();
-
                 if (strZip != null && strZip.length() == 5) {
-                    Log.d("SalesTax", "Geocoder found address: " + address);
-                    Log.d("SalesTax", "Geocoder found state: " + state);
-                    Log.d("SalesTax", "Geocoder found country: " + country);
                     Log.d("SalesTax", "Geocoder found zip: " + strZip);
                     Toast.makeText(getApplicationContext(), "Using ZIP Code: " + strZip, Toast.LENGTH_LONG).show();
 
@@ -71,7 +67,7 @@ public class LocationActivity extends AppCompatActivity
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Latitude and Longitude outside of US", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Latitude and Longitude does not match to a ZIP Code", Toast.LENGTH_LONG).show();
                 }
             }
         });

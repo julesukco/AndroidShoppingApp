@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class DetailActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +28,8 @@ public class DetailActivity extends AppCompatActivity {
 
         TextView productName = (TextView) findViewById(R.id.txtProduct);
         TextView description = (TextView) findViewById(R.id.txtDesc);
+        TextView category = (TextView) findViewById(R.id.txtCategory);
+        TextView taxRate = (TextView) findViewById(R.id.txtTaxRate);
         TextView amount = (TextView) findViewById(R.id.txtAmount);
 
         int pos = Integer.parseInt(productId);
@@ -33,6 +37,24 @@ public class DetailActivity extends AppCompatActivity {
         price = ProductCatalog.ProductPrice[pos];
         amount.setText("$" + price);
         productName.setText(ProductCatalog.ProductList[pos]);
+
+        String type = ProductCatalog.ProductType[pos];
+        category.setText("Category: " + type);
+        double salesTaxRate;
+
+        switch (type) {
+            case "Food":
+                salesTaxRate = MySessionVars.salesTaxRates.getSalesTaxFood();
+                break;
+            case "Clothing":
+                salesTaxRate = MySessionVars.salesTaxRates.getSalesTaxClothing();
+                break;
+            default:
+                salesTaxRate = MySessionVars.salesTaxRates.getSalesTaxOther();
+                break;
+        }
+        DecimalFormat currency = new DecimalFormat("##0");
+        taxRate.setText("Sales Tax: " + currency.format(salesTaxRate * 100) + "%");
 
         Button buy = (Button) findViewById(R.id.btnAdd);
         buy.setOnClickListener(new View.OnClickListener() {

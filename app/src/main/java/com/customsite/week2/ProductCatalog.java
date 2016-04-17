@@ -38,7 +38,7 @@ public class ProductCatalog {
     public static String[] ProductType = new String[]{
             "Food",
             "Food",
-            "Clothing",
+            "Food",
             "Clothing",
             "Clothing",
             "Clothing",

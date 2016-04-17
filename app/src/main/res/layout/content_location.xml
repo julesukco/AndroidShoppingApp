@@ -29,8 +29,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:ems="5"
-        android:inputType="number"
-        android:maxLength="9"
+        android:inputType="numberDecimal"
+        android:maxLength="11"
         android:numeric="decimal"
         android:text="39.5186" />
 
@@ -53,8 +53,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="15dp"
         android:ems="5"
-        android:inputType="number"
-        android:maxLength="9"
+        android:inputType="numberDecimal"
+        android:maxLength="11"
         android:numeric="decimal"
         android:text="-104.7613" />
 
@@ -67,7 +67,7 @@
         android:layout_marginBottom="30dp"
         android:width="60sp"
         android:background="#c20805"
-        android:text="Use Current Location"
+        android:text="Use Location"
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
@@ -106,12 +106,5 @@
         android:textColor="#ffffff"
         android:textStyle="bold" />
 
-    <fragment
-        android:id="@+id/mapFragment"
-        android:name="com.customsite.week2.MapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/btnStart2"
-        android:layout_marginTop="20dp" />
 
 </RelativeLayout>

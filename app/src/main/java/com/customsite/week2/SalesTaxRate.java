@@ -11,6 +11,18 @@ public class SalesTaxRate {
     private static final double[] SALES_TAX_CLOTHING = {0.05, 0.06, 0.07, 0.08, 0.09};
     private static final double[] SALES_TAX_OTHER = {0.03, 0.04, 0.05, 0.06, 0.07};
 
+    public double getSalesTaxFood() {
+        return salesTaxFood;
+    }
+
+    public double getSalesTaxClothing() {
+        return salesTaxClothing;
+    }
+
+    public double getSalesTaxOther() {
+        return salesTaxOther;
+    }
+
     private double salesTaxFood;
     private double salesTaxClothing;
     private double salesTaxOther;
